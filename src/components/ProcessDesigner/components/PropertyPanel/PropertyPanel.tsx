@@ -28,7 +28,7 @@ import {
   SoundOutlined,
 } from '@ant-design/icons';
 import { initBpmnInstance } from '@/bpmn/util/windowUtil';
-import { useAppSelector } from '@/redux/hook/hooks';
+import { useAppSelector } from '@/hox/hook/hooks';
 import FlowCondition from '@/bpmn/panel/FlowCondition/FlowCondition';
 
 interface IProps {
@@ -51,8 +51,7 @@ export default function PropertyPanel(props: IProps) {
   const [moddle, setModdel] = useState<any>();
   const [rootElements, setRootElements] = useState([]);
   // redux
-  const processId = useAppSelector((state) => state.bpmn.processId);
-  const colorPrimary = useAppSelector((state) => state.theme.colorPrimary);
+  // const processId = useAppSelector((state) => state.bpmn.processId);
 
   /**
    * 初始化
@@ -63,7 +62,7 @@ export default function PropertyPanel(props: IProps) {
     if (modeler) {
       init();
     }
-  }, [processId]);
+  }, []);
 
   /**
    * 初始化时,设置监听器
@@ -148,8 +147,8 @@ export default function PropertyPanel(props: IProps) {
     return (
       <Collapse.Panel
         header={
-          <Typography style={{ color: colorPrimary, fontWeight: 'bold' }}>
-            <InfoCircleOutlined twoToneColor={colorPrimary} />
+          <Typography style={{ fontWeight: 'bold' }}>
+            <InfoCircleOutlined />
             &nbsp;常规信息
           </Typography>
         }
@@ -176,8 +175,8 @@ export default function PropertyPanel(props: IProps) {
       return (
         <Collapse.Panel
           header={
-            <Typography style={{ color: colorPrimary, fontWeight: 'bold' }}>
-              <RetweetOutlined twoToneColor={colorPrimary} />
+            <Typography style={{ fontWeight: 'bold' }}>
+              <RetweetOutlined />
               &nbsp;流转条件
             </Typography>
           }
@@ -201,8 +200,8 @@ export default function PropertyPanel(props: IProps) {
       return (
         <Collapse.Panel
           header={
-            <Typography style={{ color: colorPrimary, fontWeight: 'bold' }}>
-              <SoundOutlined twoToneColor={colorPrimary} />
+            <Typography style={{ fontWeight: 'bold' }}>
+              <SoundOutlined />
               &nbsp;消息与信号
             </Typography>
           }
@@ -229,8 +228,8 @@ export default function PropertyPanel(props: IProps) {
       return (
         <Collapse.Panel
           header={
-            <Typography style={{ color: colorPrimary, fontWeight: 'bold' }}>
-              <FileTextOutlined twoToneColor={colorPrimary} />
+            <Typography style={{ fontWeight: 'bold' }}>
+              <FileTextOutlined />
               &nbsp;表单
             </Typography>
           }
@@ -254,8 +253,8 @@ export default function PropertyPanel(props: IProps) {
       return (
         <Collapse.Panel
           header={
-            <Typography style={{ color: colorPrimary, fontWeight: 'bold' }}>
-              <FireOutlined twoToneColor={colorPrimary} />
+            <Typography style={{ fontWeight: 'bold' }}>
+              <FireOutlined />
               &nbsp;{'任务'}
             </Typography>
           }
@@ -279,8 +278,8 @@ export default function PropertyPanel(props: IProps) {
       return (
         <Collapse.Panel
           header={
-            <Typography style={{ color: colorPrimary, fontWeight: 'bold' }}>
-              <DeploymentUnitOutlined twoToneColor={colorPrimary} />
+            <Typography style={{ fontWeight: 'bold' }}>
+              <DeploymentUnitOutlined />
               &nbsp;多实例
             </Typography>
           }
@@ -303,8 +302,8 @@ export default function PropertyPanel(props: IProps) {
     return (
       <Collapse.Panel
         header={
-          <Typography style={{ color: colorPrimary, fontWeight: 'bold' }}>
-            <BellOutlined twoToneColor={colorPrimary} />
+          <Typography style={{ fontWeight: 'bold' }}>
+            <BellOutlined />
             &nbsp;执行监听器
           </Typography>
         }
@@ -327,8 +326,8 @@ export default function PropertyPanel(props: IProps) {
       return (
         <Collapse.Panel
           header={
-            <Typography style={{ color: colorPrimary, fontWeight: 'bold' }}>
-              <BellOutlined twoToneColor={colorPrimary} />
+            <Typography style={{ fontWeight: 'bold' }}>
+              <BellOutlined />
               &nbsp;任务监听器
             </Typography>
           }
@@ -351,8 +350,8 @@ export default function PropertyPanel(props: IProps) {
     return (
       <Collapse.Panel
         header={
-          <Typography style={{ color: colorPrimary, fontWeight: 'bold' }}>
-            <NodeIndexOutlined twoToneColor={colorPrimary} />
+          <Typography style={{ fontWeight: 'bold' }}>
+            <NodeIndexOutlined />
             &nbsp;扩展属性
           </Typography>
         }
@@ -374,8 +373,8 @@ export default function PropertyPanel(props: IProps) {
     return (
       <Collapse.Panel
         header={
-          <Typography style={{ color: colorPrimary, fontWeight: 'bold' }}>
-            <FileOutlined twoToneColor={colorPrimary} />
+          <Typography style={{ fontWeight: 'bold' }}>
+            <FileOutlined />
             &nbsp;元素文档
           </Typography>
         }

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useAppDispatch, useAppSelector } from '@/redux/hook/hooks';
+import { useAppSelector } from '@/hox/hook/hooks';
 
 // 引入bpmn建模器
 import BpmnModeler from 'bpmn-js/lib/Modeler';
@@ -38,7 +38,6 @@ import DefaultEmptyXML from '@/bpmn/constant/emptyXml';
 import {
   Button,
   Col,
-  ConfigProvider,
   Dropdown,
   MenuProps,
   message,
@@ -69,7 +68,6 @@ import {
   VerticalAlignTopOutlined,
   VerticalAlignMiddleOutlined,
 } from '@ant-design/icons';
-import ConfigServer from '@/components/ProcessDesigner/components/ConfigServer/ConfigServer';
 
 // 常量引入
 import {
@@ -78,8 +76,6 @@ import {
   FLOWABLE_PREFIX,
 } from '@/bpmn/constant/constants';
 import ButtonGroup from 'antd/es/button/button-group';
-import { handleProcessId, handleProcessName } from '@/redux/slice/bpmnSlice';
-import { darkThemeData, defaultThemeData } from '@/pages/globalTheme';
 
 export default function ProcessDesigner() {
   // state
@@ -90,13 +86,11 @@ export default function ProcessDesigner() {
   const [recoverable, setRecoverable] = useState<boolean>(false);
   // const [darkTheme, setDarkTheme] = useState<any>();
   // redux
-  const bpmnPrefix = useAppSelector((state) => state.bpmn.prefix);
-  const processId = useAppSelector((state) => state.bpmn.processId);
-  const processName = useAppSelector((state) => state.bpmn.processName);
-  const colorPrimary = useAppSelector((state) => state.theme.colorPrimary);
-  const borderRadius = useAppSelector((state) => state.theme.borderRadius);
-  const darkMode = useAppSelector((state) => state.theme.darkMode);
-  const dispatch = useAppDispatch();
+  const {
+    bpmn: { prefix: bpmnPrefix },
+  } = useAppSelector((state) => [state.bpmn.prefix]);
+  const [processId, setProcessId] = useState('');
+  const [processName, setProcessName] = useState('');
   // ref
   const refFile = React.useRef<any>();
 
@@ -113,8 +107,8 @@ export default function ProcessDesigner() {
     }
     (async () => {
       // 每次重新加载前需要先消除之前的流程信息
-      dispatch(handleProcessId(undefined));
-      await dispatch(handleProcessName(undefined));
+      setProcessId('');
+      setProcessName('');
       initBpmnModeler();
     })();
   }, [bpmnPrefix]);
@@ -220,8 +214,8 @@ export default function ProcessDesigner() {
       // 获取流程id和name
       const id: string = rootElement.id;
       const name: string = rootElement.businessObject.name;
-      dispatch(handleProcessId(id));
-      dispatch(handleProcessName(name));
+      setProcessId(id);
+      setProcessName(name);
     }, 10);
     console.log('【绘制流程图】3、流程图绘制完成');
   }
@@ -714,8 +708,6 @@ export default function ProcessDesigner() {
           <ButtonGroup>{renderScaleControlButtons()}</ButtonGroup>
           {/* 撤销按钮组 */}
           <ButtonGroup>{renderStackControlButtons()}</ButtonGroup>
-          {/*配置中心按钮*/}
-          <ConfigServer />
         </Space>
       </>
     );
@@ -723,56 +715,32 @@ export default function ProcessDesigner() {
 
   return (
     <>
-      <ConfigProvider
-        theme={{
-          token: {
-            colorPrimary: colorPrimary,
-            borderRadius: borderRadius,
-            // 暗夜主题
-            ...(darkMode && darkThemeData),
-          },
-        }}
-      >
-        <Row
-          gutter={0}
+      <Row gutter={0}>
+        <Col span={1}>
+          {/*todo 2022/10/31 快捷工具栏，暂时留空，后面补充一个简易palette栏*/}
+        </Col>
+        <Col span={17}>
+          {renderToolBar()}
+          <div
+            id="canvas"
+            style={{
+              backgroundImage:
+                'linear-gradient(#8E8E8E 1px, transparent 0), linear-gradient(90deg,#8E8E8E 1px, transparent 0)',
+              backgroundSize: '20px 20px',
+            }}
+          />
+        </Col>
+        <Col
+          span={6}
           style={{
-            backgroundColor: darkMode
-              ? defaultThemeData.darkBgColor
-              : defaultThemeData.lightBgColor,
+            height: '100vh',
+            overflowY: 'auto',
+            // borderLeft: '1px solid #eee ',
           }}
         >
-          <Col span={1}>
-            {/*todo 2022/10/31 快捷工具栏，暂时留空，后面补充一个简易palette栏*/}
-          </Col>
-          <Col span={17}>
-            {renderToolBar()}
-            <div
-              id="canvas"
-              style={{
-                backgroundColor: darkMode
-                  ? defaultThemeData.darkCanvasBgColor
-                  : defaultThemeData.lightCanvasBgColor,
-                backgroundImage:
-                  'linear-gradient(#8E8E8E 1px, transparent 0), linear-gradient(90deg,#8E8E8E 1px, transparent 0)',
-                backgroundSize: '20px 20px',
-              }}
-            />
-          </Col>
-          <Col
-            span={6}
-            style={{
-              height: '100vh',
-              overflowY: 'auto',
-              backgroundColor: darkMode
-                ? defaultThemeData.darkBgColor
-                : defaultThemeData.lightBgColor,
-              // borderLeft: '1px solid #eee ',
-            }}
-          >
-            <PropertyPanel modeler={bpmnModeler} />
-          </Col>
-        </Row>
-      </ConfigProvider>
+          <PropertyPanel modeler={bpmnModeler} />
+        </Col>
+      </Row>
     </>
   );
 }

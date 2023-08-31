@@ -1,8 +1,5 @@
-import React, { Ref, useImperativeHandle, useState } from 'react';
+import { Ref, useImperativeHandle, useState } from 'react';
 import { Form, Input, Modal, Typography } from 'antd';
-import { EditOutlined } from '@ant-design/icons';
-import { defaultData } from '@/pages/globalTheme';
-import { useAppSelector } from '@/redux/hook/hooks';
 
 interface IProps {
   onRef: Ref<any>;
@@ -20,8 +17,6 @@ export default function EditEnumValues(props: IProps) {
   const { onRef, reFreshParent } = props;
   // state
   const [open, setOpen] = useState(false);
-  // redux
-  const colorPrimary = useAppSelector((state) => state.theme.colorPrimary);
   // form
   const [form] = Form.useForm<{
     key: number;
@@ -84,9 +79,7 @@ export default function EditEnumValues(props: IProps) {
       <Modal
         width={500}
         style={{ maxHeight: '50vh' }}
-        title={
-          <Typography style={{ color: colorPrimary }}>{'编辑枚举'}</Typography>
-        }
+        title={<Typography>{'编辑枚举'}</Typography>}
         open={open}
         okText={'确认'}
         cancelText={'取消'}

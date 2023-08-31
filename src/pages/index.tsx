@@ -1,11 +1,10 @@
 import ProcessDesigner from '@/components/ProcessDesigner/ProcessDesigner';
-import { Provider } from 'react-redux';
-import { store } from '@/redux/store/store';
 import { message } from 'antd';
 
 // 引入样式
 import './index.less';
 import { useEffect, useState } from 'react';
+import { Provider } from '@/hox/hook/hooks';
 
 export default function IndexPage() {
   const [visible, setVisible] = useState<boolean>(
@@ -30,7 +29,7 @@ export default function IndexPage() {
   }
 
   return (
-    <Provider store={store}>
+    <Provider>
       <div style={{ display: visible ? 'unset' : 'none' }}>
         <ProcessDesigner />
       </div>

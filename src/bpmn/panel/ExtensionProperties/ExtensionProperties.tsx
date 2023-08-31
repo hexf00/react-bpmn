@@ -9,7 +9,7 @@ import {
   extractPropertiesExtension,
   updateElementExtensions,
 } from '@/bpmn/util/panelUtil';
-import { useAppSelector } from '@/redux/hook/hooks';
+import { useAppSelector } from '@/hox/hook/hooks';
 
 interface IProps {
   businessObject: any;
@@ -30,7 +30,9 @@ export default function ExtensionProperties(props: IProps) {
   // ref
   const modalRef = useRef<any>();
   // redux
-  const prefix = useAppSelector((state) => state.bpmn.prefix);
+  const {
+    bpmn: { prefix },
+  } = useAppSelector((state) => [state.bpmn.prefix]);
 
   /**
    * 初始化
@@ -158,7 +160,6 @@ export default function ExtensionProperties(props: IProps) {
           <Button
             type="text"
             size={'small'}
-            style={{ color: '#1890ff' }}
             onClick={() => {
               modalRef.current.showEditModal(record);
             }}

@@ -21,7 +21,7 @@ import {
 import EditConstraint from '@/bpmn/panel/ElementForm/EditFormField/EditConstraint/EditConstraint';
 import EditProperty from '@/bpmn/panel/ElementForm/EditFormField/EditProperty/EditProperty';
 import EditEnumValues from '@/bpmn/panel/ElementForm/EditFormField/EditEnumValues/EditEnumValues';
-import { useAppSelector } from '@/redux/hook/hooks';
+import { useAppSelector } from '@/hox/hook/hooks';
 
 const { Option } = Select;
 
@@ -48,8 +48,6 @@ export default function EditFormField(props: IProps) {
   const editEnumValuesRef = useRef<any>();
   const editConstraintRef = useRef<any>();
   const editPropertyRef = useRef<any>();
-  // redux
-  const colorPrimary = useAppSelector((state) => state.theme.colorPrimary);
   // form
   const [form] = Form.useForm<{
     key: number;
@@ -209,7 +207,6 @@ export default function EditFormField(props: IProps) {
             <Button
               type="text"
               size={'small'}
-              style={{ color: '#1890ff' }}
               onClick={() => {
                 editEnumValuesRef.current.showEditModal(record);
               }}
@@ -341,7 +338,6 @@ export default function EditFormField(props: IProps) {
             <Button
               type="text"
               size={'small'}
-              style={{ color: '#1890ff' }}
               onClick={() => {
                 editConstraintRef.current.showEditModal(record);
               }}
@@ -473,7 +469,6 @@ export default function EditFormField(props: IProps) {
             <Button
               type="text"
               size={'small'}
-              style={{ color: '#1890ff' }}
               onClick={() => {
                 editPropertyRef.current.showEditModal(record);
               }}

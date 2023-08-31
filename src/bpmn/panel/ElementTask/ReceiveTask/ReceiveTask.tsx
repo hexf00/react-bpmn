@@ -1,8 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Divider, Form, Input, Modal, Select, Space, Typography } from 'antd';
-import { EditOutlined, PlusOutlined } from '@ant-design/icons';
-import { defaultData } from '@/pages/globalTheme';
-import { useAppSelector } from '@/redux/hook/hooks';
+import { PlusOutlined } from '@ant-design/icons';
 
 const defaultOptions = {
   name: '无',
@@ -27,8 +25,6 @@ export default function ReceiveTask(props: IProps) {
   const [messageRefOptions, setMessageRefOptions] = useState<Array<any>>([
     defaultOptions,
   ]);
-  // redux
-  const colorPrimary = useAppSelector((state) => state.theme.colorPrimary);
   // form
   const [form] = Form.useForm<{
     messageId: string;
@@ -160,18 +156,14 @@ export default function ReceiveTask(props: IProps) {
       <>
         <Typography.Link
           onClick={() => setOpen(true)}
-          style={{ whiteSpace: 'nowrap', color: colorPrimary }}
+          style={{ whiteSpace: 'nowrap' }}
         >
           <PlusOutlined /> {'创建新消息'}
         </Typography.Link>
         <Modal
           width={500}
           style={{ maxHeight: '50vh' }}
-          title={
-            <Typography style={{ color: colorPrimary }}>
-              {'创建消息实例'}
-            </Typography>
-          }
+          title={<Typography>{'创建消息实例'}</Typography>}
           open={open}
           okText={'确认'}
           cancelText={'取消'}

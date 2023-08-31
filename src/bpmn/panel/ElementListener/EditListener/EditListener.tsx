@@ -339,7 +339,6 @@ export default function EditListener(props: IProps) {
           <Button
             type="text"
             size={'small'}
-            style={{ color: '#1890ff' }}
             onClick={() => {
               editRef.current.showEditModal(record);
             }}

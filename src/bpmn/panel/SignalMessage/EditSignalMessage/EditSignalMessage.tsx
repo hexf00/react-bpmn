@@ -1,8 +1,5 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Modal, Button, Input, Typography, Form } from 'antd';
-import { EditOutlined } from '@ant-design/icons';
-import { defaultData } from '@/pages/globalTheme';
-import { useAppSelector } from '@/redux/hook/hooks';
 
 const MESSAGE_CONSTANT: string = 'message';
 
@@ -23,8 +20,6 @@ export default function EditSignalMessage(props: IProps) {
   const { createType, initRows, rowIds } = props;
   // state
   const [open, setOpen] = useState(false);
-  // redux
-  const colorPrimary = useAppSelector((state) => state.theme.colorPrimary);
   // form
   const [form] = Form.useForm<{
     id: string;
@@ -123,7 +118,7 @@ export default function EditSignalMessage(props: IProps) {
         width={500}
         style={{ maxHeight: '50vh' }}
         title={
-          <Typography style={{ color: colorPrimary }}>
+          <Typography>
             {createType === MESSAGE_CONSTANT ? '编辑消息' : '编辑信号'}
           </Typography>
         }

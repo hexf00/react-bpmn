@@ -16,7 +16,7 @@ import {
   checkIsCustomType,
   getFormFieldNameByType,
 } from '@/bpmn/panel/ElementForm/dataSelf';
-import { useAppSelector } from '@/redux/hook/hooks';
+import { useAppSelector } from '@/hox/hook/hooks';
 import { extractFormData } from '@/bpmn/util/panelUtil';
 
 interface IProps {
@@ -44,7 +44,9 @@ export default function ElementForm(props: IProps) {
     businessKey: string;
   }>();
   // redux
-  const bpmnPrefix = useAppSelector((state) => state.bpmn.prefix);
+  const {
+    bpmn: { prefix: bpmnPrefix },
+  } = useAppSelector((state) => [state.bpmn.prefix]);
 
   /**
    * 初始化
@@ -367,7 +369,6 @@ export default function ElementForm(props: IProps) {
           <Button
             type="text"
             size={'small'}
-            style={{ color: '#1890ff' }}
             onClick={() => {
               editFormFieldRef.current.showEditDrawer(record);
             }}

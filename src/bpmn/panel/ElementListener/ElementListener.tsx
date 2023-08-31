@@ -9,7 +9,7 @@ import {
   extractOtherExtensionList,
   updateElementExtensions,
 } from '@/bpmn/util/panelUtil';
-import { useAppSelector } from '@/redux/hook/hooks';
+import { useAppSelector } from '@/hox/hook/hooks';
 
 // 监听器节点类型
 const ELEMENT_LISTENER_TYPE = {
@@ -37,7 +37,9 @@ export default function ElementListener(props: IProps) {
   // ref
   const editRef = useRef<any>();
   // redux
-  const prefix = useAppSelector((state) => state.bpmn.prefix);
+  const {
+    bpmn: { prefix },
+  } = useAppSelector((state) => [state.bpmn.prefix]);
 
   /**
    * 初始化
@@ -204,7 +206,6 @@ export default function ElementListener(props: IProps) {
               <Button
                 type="text"
                 size={'small'}
-                style={{ color: '#1890ff' }}
                 onClick={() => {
                   editRef.current.showEditDrawer(record);
                 }}
@@ -254,7 +255,6 @@ export default function ElementListener(props: IProps) {
               <Button
                 type="text"
                 size={'small'}
-                style={{ color: '#1890ff' }}
                 onClick={() => {
                   editRef.current.showEditDrawer(record);
                 }}
