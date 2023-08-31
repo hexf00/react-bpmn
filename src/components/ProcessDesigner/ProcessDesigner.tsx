@@ -19,10 +19,6 @@ import 'bpmn-js/dist/assets/bpmn-font/css/bpmn.css';
 import 'bpmn-js/dist/assets/bpmn-font/css/bpmn-codes.css';
 import 'bpmn-js/dist/assets/bpmn-font/css/bpmn-embedded.css';
 
-// 引入属性面板(properties-panel)样式
-import 'bpmn-js-properties-panel/dist/assets/element-templates.css';
-import 'bpmn-js-properties-panel/dist/assets/properties-panel.css';
-
 // 引入翻译模块
 import translationsCN from '@/bpmn/translate/zh.js';
 import customTranslate from '@/bpmn/translate/customTranslate.js';

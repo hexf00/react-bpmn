@@ -22,11 +22,9 @@
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
     "@ant-design/pro-layout": "^6.5.0",
-    "@bpmn-io/properties-panel": "^0.13.2",
     "ahooks": "^3.4.0",
     "antd": "5.x",
-    "bpmn-js": "^9.0.3",
-    "bpmn-js-properties-panel": "^1.0.0",
+    "bpmn-js": "^14.0.0",
     "bpmn-js-token-simulation": "^0.28.0",
     "camunda-bpmn-moddle": "^6.1.2",
     "hox": "^2.1.1",
