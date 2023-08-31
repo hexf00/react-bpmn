@@ -1,7 +1,5 @@
-import React, { Ref, useImperativeHandle, useState } from 'react';
+import { Ref, useImperativeHandle, useState } from 'react';
 import { Form, Input, Modal, Typography } from 'antd';
-import { EditOutlined } from '@ant-design/icons';
-import { useAppSelector } from '@/hox/hook/hooks';
 
 interface IProps {
   onRef: Ref<any>;

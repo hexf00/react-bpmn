@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useAppSelector } from '@/hox/hook/hooks';
+import { useBpmnStore } from '@/hox/hook/hooks';
 
 // 引入bpmn建模器
 import BpmnModeler from 'bpmn-js/lib/Modeler';
@@ -88,7 +88,7 @@ export default function ProcessDesigner() {
   // redux
   const {
     bpmn: { prefix: bpmnPrefix },
-  } = useAppSelector((state) => [state.bpmn.prefix]);
+  } = useBpmnStore((state) => [state.bpmn.prefix]);
   const [processId, setProcessId] = useState('');
   const [processName, setProcessName] = useState('');
   // ref

@@ -4,7 +4,7 @@ import {
   loop_characteristics_type,
   loop_characteristics_type_options,
 } from '@/bpmn/panel/MultiInstance/dataSelf';
-import { useAppSelector } from '@/hox/hook/hooks';
+import { useBpmnStore } from '@/hox/hook/hooks';
 
 const keyOptions = {
   collection: 'collection',
@@ -52,7 +52,7 @@ export default function MultiInstance(props: IProps) {
   // redux
   const {
     bpmn: { prefix: bpmnPrefix },
-  } = useAppSelector((state) => [state.bpmn.prefix]);
+  } = useBpmnStore((state) => [state.bpmn.prefix]);
 
   /**
    * 初始化

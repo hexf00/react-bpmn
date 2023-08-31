@@ -1,4 +1,4 @@
-import React, { Ref, useImperativeHandle, useRef, useState } from 'react';
+import { Ref, useImperativeHandle, useRef, useState } from 'react';
 import {
   Drawer,
   Button,
@@ -21,7 +21,6 @@ import {
 import EditConstraint from '@/bpmn/panel/ElementForm/EditFormField/EditConstraint/EditConstraint';
 import EditProperty from '@/bpmn/panel/ElementForm/EditFormField/EditProperty/EditProperty';
 import EditEnumValues from '@/bpmn/panel/ElementForm/EditFormField/EditEnumValues/EditEnumValues';
-import { useAppSelector } from '@/hox/hook/hooks';
 
 const { Option } = Select;
 

@@ -9,7 +9,7 @@ import {
   extractPropertiesExtension,
   updateElementExtensions,
 } from '@/bpmn/util/panelUtil';
-import { useAppSelector } from '@/hox/hook/hooks';
+import { useBpmnStore } from '@/hox/hook/hooks';
 
 interface IProps {
   businessObject: any;
@@ -32,7 +32,7 @@ export default function ExtensionProperties(props: IProps) {
   // redux
   const {
     bpmn: { prefix },
-  } = useAppSelector((state) => [state.bpmn.prefix]);
+  } = useBpmnStore((state) => [state.bpmn.prefix]);
 
   /**
    * 初始化

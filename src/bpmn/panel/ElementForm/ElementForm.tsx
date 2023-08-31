@@ -16,7 +16,7 @@ import {
   checkIsCustomType,
   getFormFieldNameByType,
 } from '@/bpmn/panel/ElementForm/dataSelf';
-import { useAppSelector } from '@/hox/hook/hooks';
+import { useBpmnStore } from '@/hox/hook/hooks';
 import { extractFormData } from '@/bpmn/util/panelUtil';
 
 interface IProps {
@@ -46,7 +46,7 @@ export default function ElementForm(props: IProps) {
   // redux
   const {
     bpmn: { prefix: bpmnPrefix },
-  } = useAppSelector((state) => [state.bpmn.prefix]);
+  } = useBpmnStore((state) => [state.bpmn.prefix]);
 
   /**
    * 初始化

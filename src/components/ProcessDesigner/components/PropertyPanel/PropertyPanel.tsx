@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Collapse, Space, Typography } from 'antd';
 import ElementBaseInfo from '@/bpmn/panel/ElementBaseInfo/ElementBaseInfo';
 
@@ -10,25 +10,17 @@ import ElementTask from '@/bpmn/panel/ElementTask/ElementTask';
 import MultiInstance from '@/bpmn/panel/MultiInstance/MultiInstance';
 import ElementForm from '@/bpmn/panel/ElementForm/ElementForm';
 import {
-  AppstoreOutlined,
-  AuditOutlined,
   BellOutlined,
-  BulbTwoTone,
-  DatabaseTwoTone,
   DeploymentUnitOutlined,
   FileOutlined,
   FileTextOutlined,
-  FileTwoTone,
   FireOutlined,
   InfoCircleOutlined,
   NodeIndexOutlined,
-  NotificationOutlined,
-  OrderedListOutlined,
   RetweetOutlined,
   SoundOutlined,
 } from '@ant-design/icons';
 import { initBpmnInstance } from '@/bpmn/util/windowUtil';
-import { useAppSelector } from '@/hox/hook/hooks';
 import FlowCondition from '@/bpmn/panel/FlowCondition/FlowCondition';
 
 interface IProps {
