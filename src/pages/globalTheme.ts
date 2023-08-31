@@ -15,7 +15,7 @@ export type ThemeData = {
 export const defaultThemeData: ThemeData = {
   borderRadius: 6,
   // 基础主题色
-  colorPrimary: '#FF33CC',
+  colorPrimary: '#ff0000',
   // 背景色：dark模式
   darkBgColor: '#000000',
   // 背景色：light模式
