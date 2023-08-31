@@ -4,9 +4,9 @@
 依赖：
 
 
-1. react 
-2. antdv5
-3. bpmn.js
+1. react v18 
+2. antd v5
+3. bpmn.js v14
 
 
 在原项目基础调整如下：
