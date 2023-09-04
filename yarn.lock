@@ -2124,7 +2124,7 @@
     "min-dom" "^4.0.3"
     "randomcolor" "^0.6.2"
 
-"bpmn-js@^14.0.0", "bpmn-js@^6.x || ^7.x || ^8.x || ^9.x":
+"bpmn-js@^14.0.0":
   "integrity" "sha512-/P09jowzcib0Yg9XuHWIugrwfubtq/7Z/0/DgjYJ2Q/Z7LogDkCPiNFIyWX4cKx/eYXJJ5kqtgmDpXv8MnT7gw=="
   "resolved" "https://registry.npmmirror.com/bpmn-js/-/bpmn-js-14.0.0.tgz"
   "version" "14.0.0"
@@ -2348,13 +2348,6 @@
   "integrity" "sha512-Gmy6FhYlCY7uOElZUSbxo2UCDH8owEk996gkbrpsgGtrJLM3J7jGxl9Ic7Qwwj4ivOE5AWZWRMecDdF7hqGjFA=="
   "resolved" "https://registry.npmjs.org/camelcase/-/camelcase-6.3.0.tgz"
   "version" "6.3.0"
-
-"camunda-bpmn-moddle@^6.1.2":
-  "integrity" "sha512-DfhOTeq8oN01cB5sLE6Rq34/9xGD15/Y14pEM+YBIjgvV6Rclh+BgIa/2aRMm8An4Kc/itm2tECYiDr8p/FyTQ=="
-  "resolved" "https://registry.npmjs.org/camunda-bpmn-moddle/-/camunda-bpmn-moddle-6.1.2.tgz"
-  "version" "6.1.2"
-  dependencies:
-    "min-dash" "^3.8.1"
 
 "caniuse-lite@^1.0.30000981", "caniuse-lite@^1.0.30001109", "caniuse-lite@^1.0.30001317":
   "integrity" "sha512-OyxRR4Vof59I3yGWXws6i908EtGbMzVUi3ganaZQHmydk1iwDhRnvaPG2WaR0KcqrDFKrxVZHULT396LEPhXfg=="
@@ -3040,7 +3033,7 @@
     "min-dash" "^4.0.0"
     "min-dom" "^4.0.2"
 
-"diagram-js@*", "diagram-js@^5.x || ^6.x || ^7.x || ^8.x":
+"diagram-js@*":
   "integrity" "sha512-R9D4CtRPCXFllGE4P/UTcK3fgYG/0WQfb87Pl7frdfnAbCbjZAM2vU0qgZaBhfU0cmW2OhdDPmEtz89brrOZDA=="
   "resolved" "https://registry.npmjs.org/diagram-js/-/diagram-js-8.2.1.tgz"
   "version" "8.2.1"
@@ -5630,7 +5623,7 @@
   "resolved" "https://registry.npmjs.org/mimic-fn/-/mimic-fn-2.1.0.tgz"
   "version" "2.1.0"
 
-"min-dash@^3.5.2", "min-dash@^3.8.1":
+"min-dash@^3.5.2":
   "integrity" "sha512-evumdlmIlg9mbRVPbC4F5FuRhNmcMS5pvuBUbqb1G9v09Ro0ImPEgz5n3khir83lFok1inKqVDjnKEg3GpDxQg=="
   "resolved" "https://registry.npmjs.org/min-dash/-/min-dash-3.8.1.tgz"
   "version" "3.8.1"
