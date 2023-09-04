@@ -50,11 +50,17 @@ export default function PropertyPanel(props: IProps) {
    */
   useEffect(() => {
     initBpmnInstance();
+  }, []);
+
+  /**
+   * 初始化
+   */
+  useEffect(() => {
     // 避免初始化，流程图未加载完导致出错
     if (modeler) {
       init();
     }
-  }, []);
+  }, [modeler]);
 
   /**
    * 初始化时,设置监听器
@@ -116,6 +122,9 @@ export default function PropertyPanel(props: IProps) {
   function confirmCurrentElement(element: any) {
     // 如果element为空，则设置流程节点为当前节点，否则设置选中节点为当前节点 (点击canvas空白处默认指流程节点)
     if (!element) {
+      if (!modeler.getDefinitions()) {
+        return;
+      }
       // 查询流程节点的id,并通过id获取流程节点
       const newId = modeler.getDefinitions().rootElements[0].id;
       let processElement: any = modeler.get('elementRegistry').get(newId);

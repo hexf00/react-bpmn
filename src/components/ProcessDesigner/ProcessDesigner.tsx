@@ -76,7 +76,8 @@ import ButtonGroup from 'antd/es/button/button-group';
 export default function ProcessDesigner() {
   // state
   const [bpmnModeler, setBpmnModeler] = useState<any>();
-  const [simulationStatus, setSimulationStatus] = useState<boolean>(false);
+  const [simulationStatus, setupdatePropertiesStatus] =
+    useState<boolean>(false);
   const [zoomSize, setZoomSize] = useState<number>(1);
   const [revocable, setRevocable] = useState<boolean>(false);
   const [recoverable, setRecoverable] = useState<boolean>(false);
