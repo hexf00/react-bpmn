@@ -5,6 +5,7 @@
  * translations and labels to translate.
  */
 export default {
+  'Change element': '修改节点',
   // 添加部分
   'Append EndEvent': '追加结束事件',
   'Append Gateway': '追加网关',
